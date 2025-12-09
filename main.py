@@ -6,6 +6,10 @@ import re
 
 app = FastAPI(title="ST Courier Tracking API")
 
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
 def get_tracking_info(awb: str):
     url_check = "https://stcourier.com/track/doCheck"
     url_page = "https://stcourier.com/track/shipment"
